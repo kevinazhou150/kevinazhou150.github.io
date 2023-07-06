@@ -1,0 +1,130 @@
+<html>
+    <head>
+    <title>Kaz's Website</title>
+    </head>
+
+<style>
+.goodtable
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+.goodtable th {
+  border: 1px solid gray;
+  border-collapse: collapse;
+  text-align: center;
+}
+.goodtable td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+}
+</style>
+
+    <body>
+
+    <div>
+<h1><a href = "index.html">Kaz</a></h1>
+
+<table class="goodtable">
+<tr>
+    <th>
+        <a href = "math.html"> <img src="images/maths.png"  class="puzzle_image" style="width: 48px"/>
+        Maths </a>
+    </th>
+    <th>
+        <a href = "fp.html"> <img src="images/lambda.png"  class="puzzle_image" style="width: 48px"/>
+        Functional Programming </a>
+    </th>
+    <th>
+        <a href = "puzzle.html"> <img src="images/puzzlemorning.png"  class="puzzle_image" style="width: 48px"/>
+        Puzzles </a>
+    </th>
+    <th>
+        <a href = "mario.html"> <img src="images/marioballoon.png"  class="puzzle_image" style="width: 32px"/>
+        Mario Hacking </a>
+    </th>
+    <th>
+        <a href = "misc.html"> <img src="images/cmuwubasket.png"  class="puzzle_image" style="width: 48px"/>
+        Misc </a>
+    </th>
+</tr>
+</table>
+
+<p>
+Besides being a math major, I also am interested in functional programming and programming language theory.
+I have been a teacher assistant for 15-150, principles of functional programming, seven times!
+(And I was a head TA once, which taught me just how difficult and rewarding it is to be a leader.)
+</p>
+<p>
+During my time I've come up with lots of interesting problems, so I'll share my favorite contributions here.
+</p>
+
+<p>
+<b>Probability Trees</b> (Joint effort primarily with Brandon (old), Aileen, George, and Thea) <br><br>
+It's a cool idea to model probability trees in a programming language. There's
+<i>local</i> probability trees, where each node tells the probabilities of getting to each of the node's children.
+It's easy to add events to such a probability tree, but difficult to find the probability of an outcome.<br>
+On the other hand, there are <i>cumulative</i> probability trees, where each node tells the probability of getting
+to that node from the root. Here it's easy to find the probability of an outcome, but adding an event would require
+reweighting all the nodes' values! <br><br>
+We wrote a problem that explores these differences, while allowing students to practice with datatypes in Standard ML. 
+It was also my first time writing a full-fledged autograder,
+which was fun but also extremely demanding. Thea rescued me at the end to fix all my bugs.
+</p>
+
+<p>
+<b>Staging</b><br><br>
+One motivation of higher order functions is the ability to stage computation.
+I wrote a problem that shows students in real time how staging can lead to more efficient code:
+for large $n$, it's better to sort a list once and then query $n$ times, 
+than to query $n$ times on an unsorted list.<br><br>
+I also wrote silly flavortext: the Lambda Bakery, famous for their m<i>int</i> chocolate chip cookies,
+<i>int</i>erviws the student on how to serve their customers faster. 
+The solution is to do all the meal preparation first and then serve customers,
+rather than to do meal preparation from scratch each time a new customer walks in!
+</p>
+
+<p>
+<b>AIV tracker</b> (Joint effort with Suhas, Yosef, Thea, and countless others)
+
+</p>
+
+<p>
+    <b>Sequence of Frogs</b>
+    
+
+</p>
+
+
+<p>
+<b>Paths and Cycles</b>
+
+</p>
+
+<p>
+    <b>The MODULE Module</b>
+    
+    </p>
+
+
+<p>
+    <b>Arithmetic in an arbitrary base</b><br><br>
+    There wasn't ever room for this problem, but I think it's a fun exercise with lists.<br>
+    We can represent integers with a list of digits. (This lets us avoid integer overflow!)
+    There is a slick recursive way to implement addition on such integers.
+    We can also use these integers to tackle brute-force problems (such as finding Schur triples)
+    without backtracking.<br><br>
+    Since this problem was never released, I feel safe sharing the writeup here. I'm pretty proud of it!
+
+</p>
+
+
+
+</div>
+
+</body>
+
+</html>
