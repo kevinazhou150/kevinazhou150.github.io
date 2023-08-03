@@ -134,6 +134,24 @@ The product theorem is incredibly overpowered. We can do the following:
 
 <h3>Anti-Ramsey multiplicities, aka rainbows!</h3>
 
+Given a subgraph $H$, what is the $r$-coloring of $K_n$ which maximizes the number of rainbow copies of $H$ 
+(that is, where all edges of $H$ have different colors)? <br><br>
+
+This question is quite difficult. Often, a random coloring is optimal (asymptotically). 
+But there are some graphs $H$ where random colorings are not optimal. 
+The main result that our team, led by Zhanar Berikkyzy and Gabriel Elvin, found was that we can beat 
+random colorings, for the graph $C_6$ (a 6-cycle) with 6 colors.
+Using a computer, we found this graph, which has 544 rainbow $C_5$'s in $K_{10}$. <br><br>
+
+<img src="images/k10.PNG"  style="width: 400px"/>
+<br><br>
+Now the trick is to identify each vertex of the above $K_{10}$ with a "blob" of two vertices, 
+and use a 6th color for edges within each blob. This way we get 87040 $C_6$'s. 
+We can now inductively "blow up" the graph to always beat a random coloring of 
+$K_n$ for large $n$. (It was pretty exciting to find this new result,
+so I wanted to add a $!$ to the end of the previous sentence, except 
+then it would look like $n!$)
+
 <h3>Hat Problems</h3>
 
 
