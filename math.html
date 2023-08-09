@@ -69,67 +69,19 @@ body {
 </p>
 <h3>Convex Codes</h3>
 <p>
-    Suppose there are 3 convex sets $U_1, U_2, U_3$ in $\mathbb{R}^2$, and we know the following:
-    <ul>
-        <li> There exists a point in both $U_1$ and $U_2$. In other words, $U_1, U_2$ overlap.
-            Similarly $U_1, U_3$ overlap and $U_2, U_3$ overlap.
-        <li> There exists a point in only $U_1$. There also exists a point only in $U_2$, and a point only in $U_3$.
-        <li> There isn't a point in $U_1, U_2, U_3$ all at once.
-    </ul>
-    Then we know that the sets have to roughly form the shape of a triangle, with a hole in the middle:
+    Given a family of sets, we can record how they overlap and intersect with a <i>code</i>:
 </p>
-
+(image)
 <p>
-    Since writing out the above description of how the sets overlap is tedious, we have notation: we can instead
-    write the <b>code</b> $\{12, 13, 23, 1, 2, 3, \emptyset \}$. 
-    Then we say the above image is a convex realization of this code. 
-</p>
-<p>
-    I am studying box-convex realizations, where we require the sets to be boxes (Cartesian products of intervals).
-    With Brenda, Kina, Miguel, and Tiffany, under the guidance of Dr. Amzi Jeffs, we discovered this powerful theorem:
-</p>
-<p>
-   <b>Product Theorem:</b> Let $\mathcal U = \{U_1, U_2, \cdots, U_n\}$ be a family of sets in $\mathbb{R}^{d_1}$ 
-    and $\mathcal V = \{V_1, V_2, \cdots, V_n\}$ be a family of sets in $\mathbb{R}^{d_2}$. 
-    Define $\mathcal W = \{W_1, W_2, \cdots, W_n\}$, where $W_i = U_i \times V_i$ for $i = 1, 2, \cdots, n$.
-    Then,
-</p>
-<p>
-    $\text{code}(\mathcal W) = \{c_1 \cap c_2 : c_1 \in \text{code}(U), c_2 \in \text{code}(V) \}$
-</p>
-This theorem allows us to predict the code of a family of sets, based on its decomposition into lower dimensions!
-It's most applicable for boxes, because a box in $\mathbb{R}^d$ can be decomposed into $d$ intervals.
-
-The product theorem is incredibly overpowered. We can do the following:
-<ul>
-    <li>For properties that are true in 1 dimension, we can extend them to boxes in $d$ dimensions.
-        For example, it's known that a realization of a code with intervals can be
-        massaged to all have integer coordinates between 0 and 2n. (This is since there are
-        2n endpoints, and only the endpoints matter.) From this, we can show that 
-        a realization of a code with boxes can be massaged so that the coordinates in all 
-        dimensions are between 0 and 2n. I would have used an exclamation mark at the end 
-        of that sentence to show excitement but it could've been mistaken for a factorial,
-        so the exclamation point was moved here instead! </li>
-    <li> We can write a relatively efficient algorithm to classify box-convex codes.
-        For a given $n$, we first classify all codes on $n$ indices in 1 dimension.
-        Then, we take the "intersection product" (the resulting code from the product theorem above)
-        of 1 dimensional codes to get codes realizable in 2D. And we "intersection product" a 2D code with 
-        a 1D code to get a 3D code, and so on! </li>
-    <li> We can also manually study codes to see whether they are box-convex. For example, consider the code 
-        $\{12, 13, 23, 1, 2, 3, \emptyset \}$ from above. Can we rigorously prove this is not box-convex in any
-        dimension? There is probably some geometrical argument, but instead... <br><br>
-        First, it's relatively simple to prove $\{12, 13, 23, 1, 2, 3, \emptyset \}$ is not realizable in 1 dimension
-        (try drawing it out and using contradiction). <br><br>
-        Then, suppose that there is a box realization in $d$ dimensions of $\{12, 13, 23, 1, 2, 3, \emptyset \}$.
-        We can decompose the boxes into three $d-1$ dimensional sets, and three intervals. 
-        The codes of those trios of sets must "intersection product" together to be $\{12, 13, 23, 1, 2, 3, \emptyset \}$,
-        by our product theorem. There is some casework involved, but it's possible to show 
-        that the $d-1$ dimensional trio must realize the code $\{12, 13, 23, 1, 2, 3, \emptyset \}$. But wait!
-        Now we can go to $d-2$ dimensions, then $d-3$ dimensions, and so on! The formal argument would be by induction.
-</ul>
-
-
-
+    Given a code, when can we find a family of convex sets (a <i>realization</i> of the code) whose overlapping/intersection pattern
+    matches the code? The answer is yes for some codes (like $\{12,1,2,\emptyset\}$) and no for others
+    (like $\{12,23,\emptyset\}$), but no general classification exists. 
+    I studied a more specific problem: given a code, when can we find a realization by <i>boxes</i>,
+    that is, Cartesian products of intervals (e.g. a rectangle and rectangular prism are boxes)? <br><br>
+    The main result I found is that there exist codes on $n$ indices which are realizable, but the $n$ boxes 
+    need to be in $\frac{\binom{n}{n/2}}{2}$ dimensions! This is exponential in $n$, which is quite surprising.
+    Click <a href = "math_convex.html">here</a> to read more, or <a href = "https://arxiv.org/abs/2209.02486">this paper I co-authored</a>,
+    or <a href = "convex codes thesis 8-9.pdf">my thesis</a>.
 
 
 <h3>Anti-Ramsey multiplicities, aka rainbows!</h3>
@@ -146,7 +98,7 @@ Using a computer, we found this graph, which has 544 rainbow $C_5$'s in $K_{10}$
 <img src="images/k10.PNG"  style="width: 400px"/>
 <br><br>
 Now the trick is to identify each vertex of the above $K_{10}$ with a "blob" of two vertices, 
-and use a 6th color for edges within each blob. This way we get 87040 $C_6$'s. 
+and use a 6th color for edges within each blob. This way we get a $K_{20}$ with 87040 $C_6$'s. 
 We can now inductively "blow up" the graph to always beat a random coloring of 
 $K_n$ for large $n$. (It was pretty exciting to find this new result,
 so I wanted to add a $!$ to the end of the previous sentence, except 
