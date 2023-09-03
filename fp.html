@@ -3,6 +3,11 @@
     <title>Kaz's Website</title>
     </head>
 
+    <script src="mathjax-config.js" defer></script>
+    <script type="text/javascript" id="MathJax-script" defer
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
 <style>
 .goodtable
 table {
@@ -58,7 +63,7 @@ body {
 
 <p>
 Besides being a math major, I also am interested in functional programming and programming language theory.
-I have been a teacher assistant for 15-150, principles of functional programming, seven times!
+I have been a teacher assistant for 15-150, principles of functional programming, eight times!
 (And I was a head TA once, which taught me just how difficult and rewarding it is to be a leader.)
 </p>
 <p>
@@ -66,13 +71,20 @@ During my time I've come up with lots of interesting problems, so I'll share my 
 </p>
 
 <p>
-<b>Probability Trees</b> (Joint effort primarily with Brandon (old), Aileen, George, and Thea) <br><br>
+<b>Probability Trees</b> (Joint effort with Brandon (old), Aileen, George, and Thea)
+</p>
+<img src="images/probtrees.png" style="width:800px" />
+<p>
 It's a cool idea to model probability trees in a programming language. There's
 <i>local</i> probability trees, where each node tells the probabilities of getting to each of the node's children.
-It's easy to add events to such a probability tree, but difficult to find the probability of an outcome.<br>
+It's easy to add events to such a probability tree, but difficult to find the probability of an outcome.
+</p>
+<p>
 On the other hand, there are <i>cumulative</i> probability trees, where each node tells the probability of getting
 to that node from the root. Here it's easy to find the probability of an outcome, but adding an event would require
-reweighting all the nodes' values! <br><br>
+reweighting all the nodes' values!
+</p>
+<p>
 We wrote a problem that explores these differences, while allowing students to practice with datatypes in Standard ML. 
 It was also my first time writing a full-fledged autograder,
 which was fun but also extremely demanding. Thea rescued me at the end to fix all my bugs.
@@ -91,36 +103,74 @@ rather than to do meal preparation from scratch each time a new customer walks i
 </p>
 
 <p>
-<b>AIV tracker</b> (Joint effort with Suhas, Yosef, Thea, and countless others)
-
+<b>AIV tracker</b> (Joint effort with Suhas, Thea, Yosef, and countless others)<br><br>
+As part of our quest to delete Harry Potter from our sequences homework,
+Suhas brainstormed an idea of implementing 
+<a href = "https://en.wikipedia.org/wiki/Gossip_protocol">Gossip algorithms</a>.
+The idea is that many mascots (nodes in a graph) are in various group chats (hyperedges).
+The mascots spread information (say, homework solutions) by sending a screenshot in the group chats.
+However, taking a screenshot reduces the resolution, which eventually becomes so pixelated
+no one can read it. The task is to find out which mascots have seen the homework solutions.
+</p>
+<p>
+The algorithm ends up being quite interesting, especially when trying to complete the problem
+in low span. It took us a week to discover the low span solution, and we tried making the students 
+do it as well (which ended up being too hard :p).
 </p>
 
+
 <p>
-    <b>Sequence of Frogs</b>
+    <b>Sequence of Frogs</b><br><br>
+    I wrote a problem which provides lots of practice with sequence functions.
+    Imagine $n$ frogs sitting on lilypads in a circle.
+</p>
+    <img src="images/froggo.jpg" style="width:400px" />
+<p>
+We might want to simulate all of them jumping around. Or find the "edit distance" between
+two configurations of frogs. Or figure out how many frogs exist on a group of consecutive lilypads.
+The code ends up being quite elegant and satisfying to write.
     
 
 </p>
 
 
 <p>
-<b>Paths and Cycles</b>
+<b>Paths and Cycles</b><br><br>
+Given a directed graph, how can we find a path from one vertex to another?
+For example, can we get from vertex 3 to vertex 2 in the graph below? (Yes.)
+</p>
+<img src="images/paths_cycles.png" style="width:400px" />
+<p>
+We can implement depth-first search using CPS (continuation-passing style) for control flow.
+Each node has a list of neighbors, so we can try going to each of them in order, and recurse.
+One neat trick is to delete an edge after traversing it, to avoid looping forever.
+Using our path-finding algorithm, we can easily detect cycles in the graph!
+
 
 </p>
 
 <p>
-    <b>The MODULE Module</b>
+    <b>The MODULE Module</b><br><br>
+    Brandon (old) once joked to me about having a (computer science) module represent modules
+    from abstract algebra. I went ahead with the joke. We can write signatures for groups, 
+    rings, and modules. For example, there are multiple implementations of the group $C_2$.
     
     </p>
 
 
 <p>
     <b>Arithmetic in an arbitrary base</b><br><br>
-    There wasn't ever room for this problem, but I think it's a fun exercise with lists.<br>
     We can represent integers with a list of digits. (This lets us avoid integer overflow!)
     There is a slick recursive way to implement addition on such integers.
-    We can also use these integers to tackle brute-force problems (such as finding Schur triples)
-    without backtracking.<br><br>
-    Since this problem was never released, I feel safe sharing the writeup here. I'm pretty proud of it!
+    We can also use these integers to tackle brute-force problems (such as finding 
+    <a href = "https://www.sfu.ca/~vjungic/RamseyNotes/sec_SchurThm.html">Schur triples</a>)
+    without backtracking. I also had great fun working with the Color library to print out 
+    colorings of the natural numbers.
+
+</p>
+
+<p>
+    <b>Hire Order Proofs</b>
 
 </p>
 
