@@ -105,6 +105,19 @@ so I wanted to add a $!$ to the end of the previous sentence, except
 then it would look like $n!$)
 
 <h3>Hat Problems</h3>
+Here's a riddle: there are 2 people, and each is wearing a red hat or blue hat.
+Each person can see the other's hat but not their own. Each person guesses their hat color simultaneously. 
+Develop a strategy that guarantees 1 correct guess.<br><br>
+The solution: Person 1 assumes both hats are the same color; person 2 assumes both hats are different colors. One of them will be right. <br><br>
+The research I worked on, led by William Gasarch, extended this question to more complicated scenarios.
+For example, perhaps the people are situated in a way so that they can only see a few other people's hats. 
+We can make a <i>sight graph</i>, where an edge between vertices $(x,y)$ means that persons $x$ and $y$ can see each other.
+One of our results is: if the sight graph is the complete bipartite graph $K_{m,n}$, then the best strategy will guarantee $\lfloor \frac{\min(m,n)}{2} \rfloor$ correct guesses. <br><br>
+We also investigated a different problem, called the Line of Sages problem. In this variant there are $n$ people standing in a line, where person $i$ can see the hats of persons $i+1, i+2, \cdots, n$. 
+There are some number of hat colors, and each color can be used at most once. 
+Furthermore, people guess sequentially starting from the back of the line, and no person can repeat a previous person's guess.
+We found something really surprising: if there's 3 players, and any number of colors (say, a million!), then there's a strategy that guarantees 2 correct answers!
+And furthermore, using overpowered results on Steiner systems, for any number of players $n$, there's an infinite number of $k$'s where if there's $k$ colors, then there's a strategy that guarantees $n-1$ correct answers.
 
 
     </div>
